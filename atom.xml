@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xushikang.github.io/"/>
-  <updated>2020-06-03T14:46:37.743Z</updated>
+  <updated>2020-06-08T07:10:24.320Z</updated>
   <id>https://xushikang.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>8086/8088汇编知识汇总</title>
+    <link href="https://xushikang.github.io/posts/35e906f3/"/>
+    <id>https://xushikang.github.io/posts/35e906f3/</id>
+    <published>2020-06-07T12:57:53.000Z</published>
+    <updated>2020-06-08T07:10:24.320Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><h3 id="数据寄存器"><a href="#数据寄存器" class="headerlink" title="数据寄存器"></a>数据寄存器</h3><ul><li><code>AX(Accumulator)</code>: 累加器，通常用作数据传输媒介</li><li><code>BX(Base)</code>: 基址寄存器，通常用作存放内存的基地址，常与DS配合使用</li><li><code>CX(Count)</code>: 计数寄存器，在循环和串操作指令中做计数器</li><li><code>DX(Data)</code>: 数据寄存器，在寄存器间接寻址的I/O指令中存放I/O端口地址</li></ul><h3 id="地址指针寄存器"><a href="#地址指针寄存器" class="headerlink" title="地址指针寄存器"></a>地址指针寄存器</h3><ul><li><code>SP(Stack Pointer)</code>: 堆栈指针寄存器，它指向栈顶</li><li><code>BP(Bace Pointer)</code>: 基址指针寄存器，常用来存放内存的基地址，常配合SS来使用</li></ul><h3 id="变址寄存器"><a href="#变址寄存器" class="headerlink" title="变址寄存器"></a>变址寄存器</h3><ul><li><code>SI(Source Index)</code>: 源变址寄存器，用作索引指针</li><li><code>DI(Destination Index)</code>: 目的变址寄存器，用作索引指针</li></ul><h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p>存放相应段的段地址</p><ul><li><code>CS(Code Segment)</code>: 代码段寄存器</li><li><code>SS(Stack Segment)</code>: 堆栈段寄存器</li><li><code>DS(Data Segment)</code>: 数据段寄存器</li><li><code>ES(Extra Segment)</code>: 附加段寄存器</li></ul><h3 id="控制寄存器"><a href="#控制寄存器" class="headerlink" title="控制寄存器"></a>控制寄存器</h3><ul><li><code>IP(Instructions Pointer)</code>: 指令指针寄存器</li><li><code>FLAGS</code>: 标志寄存器</li></ul><h3 id="物理地址与逻辑地址的转换"><a href="#物理地址与逻辑地址的转换" class="headerlink" title="物理地址与逻辑地址的转换"></a>物理地址与逻辑地址的转换</h3><p><code>物理地址 = 段基址 * 16 + 段内偏移地址</code></p><p>如段地址为<code>1000H</code>，偏移地址为<code>1234H</code>，则</p><p>物理地址 = $1000H * 16 + 1234H = 10000H + 1234H = 11234H$</p><h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><ul><li>立即寻址</li><li>直接寻址</li><li>寄存器寻址</li><li>寄存器间接寻址</li><li>寄存器相对寻址</li><li>基址-变址寻址</li><li>基址-变址-相对寻址</li></ul><h2 id="8086指令系统"><a href="#8086指令系统" class="headerlink" title="8086指令系统"></a>8086指令系统</h2><h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><ul><li><code>MOV</code>: 一般传输指令</li><li><code>PUSH/POP</code>: 堆栈操作指令</li><li><code>XCHG</code>: 交换指令</li><li><code>IN/OUT</code>: 输入输出指令</li><li><code>LEA</code>: 取偏移地址指令</li></ul><h3 id="算术运算指令"><a href="#算术运算指令" class="headerlink" title="算术运算指令"></a>算术运算指令</h3><h4 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h4><ul><li><code>ADD</code>: 不考虑进位的加法指令</li><li><code>ADC</code>: 带进位的加法指令</li><li><code>INC</code>: 加一指令</li></ul><h4 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h4><ul><li><code>SUB</code>: 不考虑借位减法指令</li><li><code>SBB</code>: 带借位的减法指令</li><li><code>DEC</code>: 减一指令</li><li><code>NEG</code>: 求补指令</li><li><code>CMP</code>: 比较指令</li></ul><h4 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h4><ul><li><code>MUL</code>: 乘法指令</li></ul><h4 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h4><ul><li><code>DIV</code>: 除法指令</li></ul><h3 id="逻辑运算与移位指令"><a href="#逻辑运算与移位指令" class="headerlink" title="逻辑运算与移位指令"></a>逻辑运算与移位指令</h3><h4 id="逻辑指令"><a href="#逻辑指令" class="headerlink" title="逻辑指令"></a>逻辑指令</h4><ul><li><code>AND</code>: 逻辑‘与’指令</li><li><code>OR</code>: 逻辑‘或’指令</li><li><code>NOT</code>: 逻辑‘非’指令</li><li><code>XOR</code>: 逻辑‘异或’指令</li><li><code>TEST</code>: 测试指令</li></ul><h4 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h4><ul><li><code>SAL</code>: 算术左移指令</li><li><code>SAR</code>: 算术右移指令</li><li><code>SHL</code>: 逻辑左移指令</li><li><code>SHR</code>: 逻辑右移指令</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;寄存器&quot;&gt;&lt;a href=&quot;#寄存器&quot; class=&quot;headerlink&quot; title=&quot;寄存器&quot;&gt;&lt;/a&gt;寄存器&lt;/h2&gt;&lt;h3 id=&quot;数据寄存器&quot;&gt;&lt;a href=&quot;#数据寄存器&quot; class=&quot;headerlink&quot; title=&quot;数据寄存器&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="汇编" scheme="https://XuShiKang.github.io/categories/%E6%B1%87%E7%BC%96/"/>
+    
+    
+      <category term="汇编" scheme="https://XuShiKang.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL的使用教程</title>
+    <link href="https://xushikang.github.io/posts/b609c41e/"/>
+    <id>https://xushikang.github.io/posts/b609c41e/</id>
+    <published>2020-06-05T12:46:28.000Z</published>
+    <updated>2020-06-08T06:29:16.284Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++的深浅拷贝</title>
+    <link href="https://xushikang.github.io/posts/7ee842b6/"/>
+    <id>https://xushikang.github.io/posts/7ee842b6/</id>
+    <published>2020-06-05T12:45:39.000Z</published>
+    <updated>2020-06-08T06:29:16.282Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>使用Hexo + GitHub Pages创建博客</title>
